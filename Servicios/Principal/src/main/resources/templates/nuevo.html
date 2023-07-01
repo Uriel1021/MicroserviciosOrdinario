@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Cliente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto'>
+    <link th:href="@{/animations.css}" href="/animations.css" rel="stylesheet" type="text/css">
+</head>
+<body class="custom-background">
+<header>
+    <div class="navigation">
+        <h1>GYM "COACH MAGDIEL IA"</h1>
+        <ul>
+            <li><a href="http://localhost:8080/home">Home</a></li>
+            <li><a href="http://localhost:8080/listar">Clientes</a></li>
+            <li><a href="http://localhost:8080/servicios/listar">Servicios</a></li>
+        </ul>
+    </div>
+</header>
+<h1>Nuevo Cliente</h1>
+<div class="formulario form-wrapper">
+    <form action="/guardar" method="post">
+        <input type="hidden" name="id">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="text" name="apellidoPaterno" placeholder="Apellido Paterno">
+        <input type="text" name="apellidoMaterno" placeholder="Apellido Materno">
+        <input type="text" name="correoElectronico" placeholder="Correo Electrónico">
+        <input type="text" name="telefono" placeholder="Teléfono">
+
+        <!-- Campos adicionales del cliente -->
+        <input type="hidden" name="datosMedicos.id">
+        <input type="text" name="datosMedicos.edad" placeholder="Edad">
+        <input type="text" name="datosMedicos.peso" placeholder="Peso">
+        <input type="text" name="datosMedicos.estatura" placeholder="Estatura">
+        <input type="text" name="datosMedicos.padecimientoMedico" placeholder="Padecimiento Médico">
+        <input type="checkbox" name="datosMedicos.consumoMedicamento" value="true">¿Consume Medicamento?
+        <input type="text" name="datosMedicos.presionArterial" placeholder="Presión Arterial">
+
+        <input type="hidden" name="ubicacion.id">
+        <input type="text" name="ubicacion.estado" placeholder="Estado">
+        <input type="text" name="ubicacion.colonia" placeholder="Colonia">
+        <input type="text" name="ubicacion.codigoPostal" placeholder="Código Postal">
+
+        <input type="hidden" name="datosContacto.id">
+        <input type="text" name="datosContacto.telefono" placeholder="Teléfono de Contacto">
+        <input type="text" name="datosContacto.correo" placeholder="Correo de Contacto">
+
+        <button type="submit">Guardar</button>
+    </form>
+</div>
+</body>
+</html>

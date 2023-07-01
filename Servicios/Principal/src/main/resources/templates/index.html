@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto'>
+    <link th:href="@{/animations.css}" href="/animations.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <div class="navigation">
+        <h1>GYM "COACH MAGDIEL IA"</h1>
+        <ul>
+            <li><a href="http://localhost:8080/home">Home</a></li>
+            <li><a href="http://localhost:8080/listar">Clientes</a></li>
+            <li><a href="http://localhost:8080/servicios/listar">Servicios</a></li>
+        </ul>
+    </div>
+</header>
+<nav class="seachClient">
+    <h1>Lista de Clientes</h1>
+    <form action="/buscar" method="get">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="text" name="apellidoPaterno" placeholder="Apellido Paterno">
+        <input type="text" name="apellidoMaterno" placeholder="Apellido Materno">
+        <button type="submit">Buscar</button>
+    </form>
+</nav>
+<main>
+    <div class="btn-nuevo">
+        <button onclick="window.location.href = '/nuevo';"><span class="text">Nuevo</span></button>
+    </div>
+    <div class="container">
+        <table id="tablaClientes">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Telefono</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cliente : ${clientes}">
+                <td th:text="${cliente.id}"></td>
+                <td th:text="${cliente.nombre}"></td>
+                <td th:text="${cliente.apellidoPaterno}"></td>
+                <td th:text="${cliente.apellidoMaterno}"></td>
+                <td th:text="${cliente.datosContacto.telefono}"></td>
+                <td>
+                    <a th:href="@{/cliente/} + ${cliente.id}" class="boton" role="button" title="Detalles">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </a>
+                    <a th:href="@{/editar/} + ${cliente.id}" class="boton" role="button" title="Editar">
+                        <i class="fa fa-paint-brush" aria-hidden="true"></i>
+                    </a>
+                    <a th:href="@{/eliminar/} + ${cliente.id}" class="boton" role="button" title="Eliminar">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del Cliente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto'>
+    <link th:href="@{/animations.css}" href="/animations.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <div class="navigation">
+        <h1>GYM "COACH MAGDIEL IA"</h1>
+        <ul>
+            <li><a href="http://localhost:8080/home">Home</a></li>
+            <li><a href="http://localhost:8080/listar">Clientes</a></li>
+            <li><a href="http://localhost:8080/servicios/listar">Servicios</a></li>
+        </ul>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <h2>Detalles del Cliente</h2>
+        <table>
+            <tr>
+                <td>ID:</td>
+                <td th:text="${cliente.id}"></td>
+            </tr>
+            <tr>
+                <td>Nombre:</td>
+                <td th:text="${cliente.nombre}"></td>
+            </tr>
+            <tr>
+                <td>Apellido Paterno:</td>
+                <td th:text="${cliente.apellidoPaterno}"></td>
+            </tr>
+            <tr>
+                <td>Apellido Materno:</td>
+                <td th:text="${cliente.apellidoMaterno}"></td>
+            </tr>
+            <tr>
+                <td>Teléfono:</td>
+                <td th:text="${cliente.datosContacto.telefono}"></td>
+            </tr>
+            <tr>
+                <td>Edad:</td>
+                <td th:text="${cliente.datosMedicos.edad}"></td>
+            </tr>
+            <tr>
+                <td>Peso:</td>
+                <td th:text="${cliente.datosMedicos.peso}"></td>
+            </tr>
+            <tr>
+                <td>Estatura:</td>
+                <td th:text="${cliente.datosMedicos.estatura}"></td>
+            </tr>
+            <tr>
+                <td>Padecimiento Médico:</td>
+                <td th:text="${cliente.datosMedicos.padecimientoMedico}"></td>
+            </tr>
+            <tr>
+                <td>Consumo de Medicamento:</td>
+                <td th:text="${cliente.datosMedicos.consumoMedicamento}"></td>
+            </tr>
+            <tr>
+                <td>Presión Arterial:</td>
+                <td th:text="${cliente.datosMedicos.presionArterial}"></td>
+            </tr>
+            <tr>
+                <td>Estado:</td>
+                <td th:text="${cliente.ubicacion.estado}"></td>
+            </tr>
+            <tr>
+                <td>Colonia:</td>
+                <td th:text="${cliente.ubicacion.colonia}"></td>
+            </tr>
+            <tr>
+                <td>Código Postal:</td>
+                <td th:text="${cliente.ubicacion.codigoPostal}"></td>
+            </tr>
+            <tr>
+                <td>Teléfono de Contacto:</td>
+                <td th:text="${cliente.datosContacto.telefono}"></td>
+            </tr>
+            <tr>
+                <td>Correo de Contacto:</td>
+                <td th:text="${cliente.datosContacto.correo}"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <a th:href="@{/editar/} + ${cliente.id}" class="boton" role="button" title="Editar">
+            <i class="fa fa-th-list" aria-hidden="true">Subscripciones</i>
+        </a>
+    </div>
+    <div class="container">
+        <a th:href="@{/pagos/} + ${cliente.id}" class="boton" role="button" title="Obtener pagos">
+            <i class="fa fa-credit-card" aria-hidden="true">Pagos</i>
+        </a>
+    </div>
+</main>
+</body>
+</html>

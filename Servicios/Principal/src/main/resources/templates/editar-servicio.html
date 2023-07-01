@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Servicio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto">
+    <link th:href="@{/animations.css}" href="/animations.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <div class="navigation">
+        <h1>GYM "COACH MAGDIEL IA"</h1>
+        <ul>
+            <li><a href="http://localhost:8080/home">Home</a></li>
+            <li><a href="http://localhost:8080/listar">Clientes</a></li>
+            <li><a href="http://localhost:8080/servicios/listar">Servicios</a></li>
+        </ul>
+    </div>
+</header>
+<main>
+    <h1>Editar Servicio</h1>
+    <form action="/servicios/actualizar" method="post" th:object="${servicio}">
+        <input type="hidden" th:field="*{id}"/>
+        <label>Concepto de Cobro:</label>
+        <input type="text" th:field="*{conceptoCobro}"/><br/>
+        <label>Monto de Cobro:</label>
+        <input type="number" step="0.01" th:field="*{montoCobro}"/><br/>
+        <label>Descripción de Cobro:</label>
+        <input type="text" th:field="*{descripcionCobro}"/><br/>
+        <button type="submit">Actualizar</button>
+    </form>
+</main>
+</body>
+</html>

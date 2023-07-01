@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto'>
+    <link th:href="@{/animations.css}" href="/animations.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <div class="navigation">
+        <h1>GYM "COACH MAGDIEL IA"</h1>
+        <ul>
+            <li><a href="http://localhost:8080/home">Home</a></li>
+            <li><a href="http://localhost:8080/listar">Clientes</a></li>
+            <li><a href="http://localhost:8080/servicios/listar">Servicios</a></li>
+        </ul>
+    </div>
+</header>
+<h1>Agregar pago de <span th:text="${cliente.nombre}"></span></h1>
+<div class="formulario form-wrapper">
+    <form th:action="@{/pagos/{id}(id=${cliente.id})}" method="post">
+        <label>Descripción: <input type="text" name="descripcion" required /></label><br>
+        <label>Monto: <input type="number" name="montoPago" required /></label><br>
+        <label>Fecha: <input type="date" name="fechaPago" required /></label><br>
+        <input type="submit" value="Agregar Pago" />
+    </form>
+</div>
+</body>
+</html>

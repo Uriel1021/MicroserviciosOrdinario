@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85px;
+    background-color: #28575e; /* Color de fondo para la barra de navegación */
+    box-shadow: 0 17px 59px 11px rgba(69, 245, 80, 0.8);
+}
+
+.navigation h1 {
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    margin: 0;
+    font-family: Arial, serif;
+    color: #FF681D; /* Color del texto del título */
+    background-image: -webkit-linear-gradient(0deg, #FF681D 0%, #FFC61D 46%, #1D8CFF 86%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-emphasis-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+}
+
+.navigation li {
+    margin-left: 30px;
+}
+
+.navigation a {
+    color: #FFFFFF; /* Color del texto del enlace en la barra de navegación */
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.navigation a:hover {
+    background-color: rgba(102, 171, 107, 0.7); /* Color de fondo al pasar el cursor sobre el enlace */
+    box-shadow: 0 0 400px 86px rgba(102, 171, 107, 0.7);
+    -webkit-box-shadow: 0 0 400px 86px rgba(102, 171, 107, 0.7);
+    -moz-box-shadow: 0 0 400px 86px rgba(102, 171, 107, 0.7);
+    text-decoration: underline white;
+}
+
+@media screen and (max-width: 768px) {
+    .navigation h1 {
+        font-size: 18px;
+    }
+
+    .navigation ul {
+        right: 10px;
+    }
+
+    .navigation li {
+        margin-left: 5px;
+    }
+
+    .navigation a {
+        font-size: 13px;
+    }
+}
+
+.seachClient {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* Espacio entre elementos */
+    margin-top: 125px;
+    background-color: #FFFFFF;
+}
+
+h1 {
+    color: #000000;
+    margin-right: auto; /* Mover el título a la izquierda */
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input {
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FF681D;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #FF481D;
+}
+
+@media screen and (max-width: 768px) {
+    nav.seachClient {
+        margin-top: 20px;
+    }
+
+    input {
+        margin-bottom: 5px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+}
+
+.btn-nuevo button{
+    align-items: center;
+    background-image: linear-gradient(144deg,#FF681D, #FFC61D 50%,#1D8CFF);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 18px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all .3s;
+    margin-left: 70px;
+    margin-top: 50px;
+}
+.btn-nuevo button:active, button:hover{
+    outline: 0;
+}
+.btn-nuevo button span{
+    background-color: rgb(40, 87, 94);
+    padding: 16px 24px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+}
+.btn-nuevo button:hover span{
+    background: none;
+}
+
+.btn-nuevo button:active{
+    transform: scale(0.9);
+}
+
+.container{
+    margin: 32px 70px 76px;
+    box-shadow: 8px 35px 56px rgb(0, 0, 0, 0.2);
+}
+
+table{
+    margin-top: 100px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+    border: 1px solid #1A2929;
+}
+
+td,th{
+    text-align: center;
+    padding: 8px;
+    border-right:1px solid #1A2929;
+}
+td{
+    font-size: 12px;
+}
+thead th{
+    color: #FFFFFF;
+    background: #1A2929;
+}
+tr:nth-child(even){
+    background: #9CDFD3;
+}

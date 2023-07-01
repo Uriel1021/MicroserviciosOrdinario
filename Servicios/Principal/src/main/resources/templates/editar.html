@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Cliente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto">
+    <link th:href="@{/animations.css}" href="/animations.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <div class="navigation">
+        <h1>GYM "COACH MAGDIEL IA"</h1>
+        <ul>
+            <li><a href="http://localhost:8080/home">Home</a></li>
+            <li><a href="http://localhost:8080/listar">Clientes</a></li>
+            <li><a href="http://localhost:8080/servicios/listar">Servicios</a></li>
+        </ul>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <h1>Editar Cliente</h1>
+        <form action="/guardar" method="post">
+            <input type="hidden" name="clienteId" th:value="${cliente.id}">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" th:value="${cliente.nombre}">
+
+            <label for="apellidoPaterno">Apellido Paterno:</label>
+            <input type="text" id="apellidoPaterno" name="apellidoPaterno" th:value="${cliente.apellidoPaterno}">
+
+            <label for="apellidoMaterno">Apellido Materno:</label>
+            <input type="text" id="apellidoMaterno" name="apellidoMaterno" th:value="${cliente.apellidoMaterno}">
+
+            <label for="correoElectronico">Correo Electrónico:</label>
+            <input type="email" id="correoElectronico" name="correoElectronico" th:value="${cliente.datosContacto.correo}">
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" th:value="${cliente.datosContacto.telefono}">
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="datosMedicos.edad" th:value="${cliente.datosMedicos.edad}">
+
+            <label for="peso">Peso:</label>
+            <input type="number" id="peso" name="datosMedicos.peso" step="0.01" th:value="${cliente.datosMedicos.peso}">
+
+            <label for="estatura">Estatura:</label>
+            <input type="number" id="estatura" name="datosMedicos.estatura" step="0.01" th:value="${cliente.datosMedicos.estatura}">
+
+            <label for="padecimientoMedico">Padecimiento Médico:</label>
+            <input type="text" id="padecimientoMedico" name="datosMedicos.padecimientoMedico" th:value="${cliente.datosMedicos.padecimientoMedico}">
+
+            <label for="consumoMedicamento">¿Consume Medicamento?</label>
+            <input type="checkbox" id="consumoMedicamento" name="datosMedicos.consumoMedicamento" th:checked="${cliente.datosMedicos.consumoMedicamento}">
+
+            <label for="presionArterial">Presión Arterial:</label>
+            <input type="text" id="presionArterial" name="datosMedicos.presionArterial" th:value="${cliente.datosMedicos.presionArterial}">
+
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="ubicacion.estado" th:value="${cliente.ubicacion.estado}">
+
+            <label for="colonia">Colonia:</label>
+            <input type="text" id="colonia" name="ubicacion.colonia" th:value="${cliente.ubicacion.colonia}">
+
+            <label for="codigoPostal">Código Postal:</label>
+            <input type="text" id="codigoPostal" name="ubicacion.codigoPostal" th:value="${cliente.ubicacion.codigoPostal}">
+
+            <label for="telefonoContacto">Teléfono de Contacto:</label>
+            <input type="tel" id="telefonoContacto" name="datosContacto.telefono" th:value="${cliente.datosContacto.telefono}">
+
+            <label for="correoContacto">Correo de Contacto:</label>
+            <input type="email" id="correoContacto" name="datosContacto.correo" th:value="${cliente.datosContacto.correo}">
+
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

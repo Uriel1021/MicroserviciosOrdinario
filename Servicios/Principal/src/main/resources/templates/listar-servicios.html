@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Servicios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto'>
+    <link th:href="@{/animations.css}" href="/animations.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <div class="navigation">
+        <h1>GYM "COACH MAGDIEL IA"</h1>
+        <ul>
+            <li><a href="http://localhost:8080/home">Home</a></li>
+            <li><a href="http://localhost:8080/listar">Clientes</a></li>
+            <li><a href="http://localhost:8080/servicio">Servicios</a></li>
+        </ul>
+    </div>
+</header>
+<nav class="seachClient">
+    <h1>Lista de Servicios</h1>
+    <form action="/buscar" method="get">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <button type="submit">Buscar</button>
+    </form>
+</nav>
+<main>
+    <div class="btn-nuevo">
+        <button onclick="window.location.href = '/servicios/crear';"><span class="text">Nuevo</span></button>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Concepto de Cobro</th>
+                <th>Monto de Cobro</th>
+                <th>Descripción de Cobro</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="servicio : ${servicios}">
+                <td th:text="${servicio.id}"></td>
+                <td th:text="${servicio.conceptoCobro}"></td>
+                <td th:text="${servicio.montoCobro}"></td>
+                <td th:text="${servicio.descripcionCobro}"></td>
+                <td>
+                    <a th:href="@{/servicios/editar/{id}(id=${servicio.id})}" class="boton" role="button" title="Editar">
+                        <i class="fa fa-paint-brush" aria-hidden="true"></i>
+                    </a>
+
+                    <a th:href="@{/servicios/eliminar/{id}(id=${servicio.id})}" class="boton" role="button" title="Eliminar">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>
